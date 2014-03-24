@@ -1,4 +1,4 @@
-angular.module('karolmajta.anymodal.adapters.notifications', [])
+angular.module('karolmajta.anydialog.adapters.notifications', [])
 
     .service('notificationsAdapter', ['$q', function ($q) {
 

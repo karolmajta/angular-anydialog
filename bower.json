@@ -1,6 +1,6 @@
 {
   "name": "angular-anydialog",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Angular adapter for using modals from any UI framework",
   "keywords": [
     "angular",
@@ -10,7 +10,7 @@
     "Karol Majta"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/karolmajta/angular-anymodal",
+  "homepage": "https://github.com/karolmajta/angular-anydialog",
   "ignore": [
     "**/.*",
     "node_modules",

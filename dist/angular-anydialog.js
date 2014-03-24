@@ -1,4 +1,4 @@
-angular.module('karolmajta.anymodal', [])
+angular.module('karolmajta.anydialog', [])
 
     .directive('modal', [
         '$exceptionHandler',

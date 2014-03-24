@@ -1,4 +1,4 @@
-angular.module('karolmajta.anymodal.adapters.bootstrap', [])
+angular.module('karolmajta.anydialog.adapters.bootstrap', [])
 
   .service('bootstrapAdapter', ['$q', function ($q) {
 
@@ -34,7 +34,7 @@ angular.module('karolmajta.anymodal.adapters.bootstrap', [])
       };
 
   }]);
-angular.module('karolmajta.anymodal.adapters.notifications', [])
+angular.module('karolmajta.anydialog.adapters.notifications', [])
 
     .service('notificationsAdapter', ['$q', function ($q) {
 
