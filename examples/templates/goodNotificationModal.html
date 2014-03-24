@@ -1,0 +1,15 @@
+<div class="notification notification-green">
+    <p><span class="glyphicon glyphicon-leaf"></span> [<a href ng-click="close()">close</a>]</p>
+    <p>
+        {{ notification.text }}
+    </p>
+    <div ng-show="acceptStatus === null">
+        <a href ng-click="accept()">Thats fine!</a> <a href ng-click="reject()">Uncool!</a>
+    </div>
+    <div ng-show="acceptStatus === true">
+        Accepted.
+    </div>
+    <div ng-show="acceptStatus === false">
+        Rejected
+    </div>
+</div>

@@ -1,0 +1,104 @@
+<!doctype html>
+<html ng-app="anymodal.example.app">
+<head>
+    <title>Angular Anymodal examples</title>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/notifications.css">
+</head>
+<body ng-controller="NotificationListController">
+
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Bootstrap theme</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li class="divider"></li>
+                            <li class="dropdown-header">Nav header</li>
+                            <li><a href="#">Separated link</a></li>
+                            <li><a href="#">One more separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6">
+                <h1>New notification</h1>
+                <div class="form-group">
+                    <label class="sr-only" for="notification-kind">Notification kind</label>
+                    <select id="notification-kind" class="form-control"
+                            ng-model="newNotification.kind"
+                            ng-options="kind for kind in notificationKinds"></select>
+                    <label class="sr-only" for="notification-text">Notification kind</label>
+                    <input type="text" class="form-control" id="notification-text" placeholder="Enter text"
+                           ng-model="newNotification.text">
+                </div>
+                <button class="btn btn-default"
+                        ng-disabled="!newNotification.text"
+                        ng-click="addToPending()">Add to pending</button>
+                <hr>
+                <h1>Notification statistics</h1>
+                <h2>Visible: {{ activeNotifications.length }}</h2>
+                <h2>Sent: {{ counts.sent }}</h2>
+                <h2>Accepted: {{ counts.accepted }}</h2>
+                <h2>Rejected: {{ counts.rejected }}</h2>
+                <h2>
+                    Ignored: {{ counts.sent - counts.accepted - counts.rejected - activeNotifications.length }}
+                </h2>
+            </div>
+            <div class="col-xs-6">
+                <h1>Scheduled notifications</h1>
+                <div ng-repeat="notif in pendingNotifications">
+                    <small><strong>{{ notif.kind }}</strong></small>
+                    <p>{{ notif.text }}</p>
+                </div>
+                <button class="btn btn-default"
+                        ng-disabled="pendingNotifications.length === 0"
+                        ng-click="sendPending()">Notify the user!</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="notification-boxes-container">
+        <h3>Notifications</h3>
+        <div ng-repeat="notification in activeNotifications"
+             ng-controller="NotificationController">
+
+            <modal name="notificationModal"
+                   adapter="notificationsAdapter"
+                   controlled-by="NotificationModalController"
+                   template-url="'templates/' + notification.kind + 'NotificationModal.html'"></modal>
+        </div>
+    </div>
+
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../dist/angular-anymodal-all.js"></script>
+    <script src="js/notifications.js"></script>
+</body>
+</html>
