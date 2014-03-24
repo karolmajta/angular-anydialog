@@ -1,6 +1,6 @@
-angular.module('anymodal.example.app', [
-    'karolmajta.anymodal',
-    'karolmajta.anymodal.adapters.notifications'])
+angular.module('anydialog.example.app', [
+    'karolmajta.anydialog',
+    'karolmajta.anydialog.adapters.notifications'])
 
     .controller('NotificationListController', ['$scope', function ($scope) {
 
@@ -48,7 +48,6 @@ angular.module('anymodal.example.app', [
             $scope.$notificationModal.show({
                 notification: $scope.notification
             }).result.then(function (res) {
-                console.log(res);
                 var foundIdx = null;
                 for (var i=0; i<$scope.activeNotifications.length; i++) {
                     var n = $scope.activeNotifications[i];

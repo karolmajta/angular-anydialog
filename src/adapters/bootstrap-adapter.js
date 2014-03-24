@@ -1,4 +1,4 @@
-angular.module('karolmajta.anymodal.adapters.bootstrap', [])
+angular.module('karolmajta.anydialog.adapters.bootstrap', [])
 
   .service('bootstrapAdapter', ['$q', function ($q) {
 

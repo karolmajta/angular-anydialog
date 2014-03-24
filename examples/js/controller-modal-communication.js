@@ -1,6 +1,6 @@
-angular.module('anymodal.example.app', [
-    'karolmajta.anymodal',
-    'karolmajta.anymodal.adapters.bootstrap'])
+angular.module('anydialog.example.app', [
+    'karolmajta.anydialog',
+    'karolmajta.anydialog.adapters.bootstrap'])
 
     .controller('MoodListController', ['$scope', function ($scope) {
 

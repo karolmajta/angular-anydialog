@@ -1,6 +1,6 @@
 {
-  "name": "angular-anymodal",
-  "version": "0.0.0",
+  "name": "angular-anydialog",
+  "version": "0.2.0",
   "description": "Adapter for using any UI modal with angular",
   "main": "index.js",
   "devDependencies": {
@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/karolmajta/angular-anymodal.git"
+    "url": "https://github.com/karolmajta/angular-anydialog.git"
   },
   "keywords": [
     "angular",
@@ -28,7 +28,7 @@
   "author": "Karol Majta",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/karolmajta/angular-anymodal/issues"
+    "url": "https://github.com/karolmajta/angular-anydialog/issues"
   },
-  "homepage": "https://github.com/karolmajta/angular-anymodal"
+  "homepage": "https://github.com/karolmajta/angular-anydialog"
 }

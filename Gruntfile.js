@@ -21,26 +21,26 @@ module.exports = function(grunt) {
         concat: {
             core: {
                 files: {
-                    'dist/angular-anymodal.js': ['src/*.js']
+                    'dist/angular-anydialog.js': ['src/*.js']
                 }
             },
             adapters: {
                 files: {
-                    'dist/angular-anymodal-adapters.js': ['src/adapters/*.js']
+                    'dist/angular-anydialog-adapters.js': ['src/adapters/*.js']
                 }
             },
             all: {
                 files: {
-                    'dist/angular-anymodal-all.js': ['src/*.js', 'src/adapters/*.js']
+                    'dist/angular-anydialog-all.js': ['src/*.js', 'src/adapters/*.js']
                 }
             }
         },
         uglify: {
             all: {
                 files: {
-                    'dist/angular-anymodal.min.js': ['dist/angular-anymodal.js'],
-                    'dist/angular-anymodal-adapters.min.js': ['dist/angular-anymodal-adapters.js'],
-                    'dist/angular-anymodal-all.min.js': ['dist/angular-anymodal-all.js']
+                    'dist/angular-anydialog.min.js': ['dist/angular-anydialog.js'],
+                    'dist/angular-anydialog-adapters.min.js': ['dist/angular-anydialog-adapters.js'],
+                    'dist/angular-anydialog-all.min.js': ['dist/angular-anydialog-all.js']
                 }
             }
         }
