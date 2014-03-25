@@ -1,6 +1,6 @@
 {
   "name": "angular-anydialog",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Adapter for using any UI modal with angular",
   "main": "index.js",
   "devDependencies": {
