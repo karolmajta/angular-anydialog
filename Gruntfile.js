@@ -5,7 +5,7 @@ module.exports = function(grunt) {
         watch: {
             source: {
                 files: ['Gruntfile.js', 'src/**/*.js', 'examples/**/*.js'],
-                tasks: ['build'],
+                tasks: ['build']
             }
         },
         jshint: {
@@ -15,6 +15,18 @@ module.exports = function(grunt) {
             adapters: {
                 files: [
                     {expand: true, cwd: 'src/adapters', src: ['*.js'], dest: 'dist/'}
+                ]
+            },
+            'examples-libs': {
+                files: [
+                    {expand: true,
+                     cwd: 'bower_components',
+                     src: ['**'],
+                     dest: 'examples/.components'},
+                    {expand: true,
+                     cwd: 'dist',
+                     src: ['**'],
+                     dest: 'examples/.angular-anydialog'}
                 ]
             }
         },
@@ -43,6 +55,18 @@ module.exports = function(grunt) {
                     'dist/angular-anydialog-all.min.js': ['dist/angular-anydialog-all.js']
                 }
             }
+        },
+        'http-server': {
+            dev: {
+                root: 'examples/',
+                port: 8282,
+                host: '127.0.0.1',
+                cache: 0,
+                showDir: true,
+                autoIndex: true,
+                defaultExt: 'html',
+                runInBackground: true
+            }
         }
     });
 
@@ -51,8 +75,15 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-http-server');
 
-    grunt.registerTask('build', ['jshint', 'copy:adapters', 'concat', 'uglify']);
-    grunt.registerTask('default', ['build', 'watch:source']);
+    grunt.registerTask('build', ['jshint',
+                                 'copy:adapters',
+                                 'concat',
+                                 'uglify',
+                                 'copy:examples-libs']);
 
+    grunt.registerTask('default', ['build',
+                                   'http-server:dev',
+                                   'watch:source']);
 };

@@ -14,13 +14,9 @@ To develop or launch examples
     $ git clone https://github.com/karolmajta/angular-anydialog.git
     $ cd angular-anydialog
     $ nvm use
-    $ npm install --devDependencies
+    $ npm install
     $ $(npm bin)/bower install
-    $ $(npm bin)/grunt              # this will build project an run file watcher
+    $ $(npm bin)/grunt              # this will build project
+                                    # run file watcher and dev server
 
-I did not add a http server to gruntfile yet, but if you're on *NIX:
-
-    $ python -m SimpleHTTPServer
-
-Then in your browser go to `http://localhost:8000/examples/` and choose the
-one you want.
+After these steps examples are available @ http://localhost:8282

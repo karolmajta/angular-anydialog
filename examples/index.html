@@ -1,12 +1,13 @@
 <!doctype html>
-<html ng-app="anydialog.example.app">
+<html>
 <head>
     <title>Angular Anydialog examples</title>
     <link rel="stylesheet" href=".components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href=".components/bootstrap/dist/css/bootstrap-theme.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/notifications.css">
 </head>
-<body>
+<body ng-controller="NotificationListController">
 
     <!-- Fixed navbar -->
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -39,50 +40,48 @@
         </div>
     </div>
 
-    <div class="container" ng-controller="MoodListController">
+    <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <h1>Hello!</h1>
+                <h1>angular-anydialog</h1>
                 <p>
-                    On the left you can see a list of available moods. Please feel free to edit it.
-                    On the right there is a button that allows you to select your current mood.
+                    <strong>angular-anydialog</strong> allows you to use any dialog library with
+                    angular. Currently we support:
                 </p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-6">
-                <h2>Moods</h2>
-                <ul ng-repeat="mood in availableMoods">
-                    <li>{{ mood }} [<a href ng-click="removeMood($index)">x</a>]</li>
+                <ul>
+                    <li><a href="http://getbootstrap.com">Boostrap 3</a></li>
+                    <li><a href="http://jquery.com">jQuery UI</a></li>
                 </ul>
-                <hr>
-                <div class="form-group">
-                    <label class="sr-only" for="new-mood">New mood</label>
-                    <input type="text" class="form-control" id="new-mood" placeholder="Ender new mood..."
-                           ng-model="newMood">
-                </div>
-                <button type="submit" class="btn btn-default"
-                        ng-disabled="!newMood || availableMoods.indexOf(newMood) > -1"
-                        ng-click="addMood()">Add</button>
-            </div>
-            <div class="col-xs-6">
-                <h2 ng-show="!currentMood">We don't know your mood...</h2>
-                <h2 ng-show="currentMood">Your mood: <em>{{ currentMood }}</em></h2>
-                <button class="btn btn-default"
-                        ng-click="selectMood()">Select mood</button>
+                <p>
+                    If you want you can support whatever library you want, because
+                    you can always <em>roll your own adapter</em>!
+                </p>
+                <p>It's super easy to start with!</p>
+                <pre>
+
+                    &lt;!-- the new and sexy &lt;modal&gt; tag is here to get you started --&gt;
+
+                    &lt;modal name="yourModal"
+                           controlled-by="yourModalController"&gt;
+                           template-url="'path/to/your/modal-template.html'"&gt;&lt;/modal&gt;
+                </pre>
+                <p>Check out the examples to see it in action.</p>
+                <p>Feel free to contribute @
+                    <a href="https://github.com/karolmajta/angular-anydialog">
+                        https://github.com/karolmajta/angular-anydialog
+                    </a>
+                </p>
+                <p>
+                    This project's website is
+                    <a href="https://angular-anydialog.karolmajta.com">
+                        https://angular-anydialog.karolmajta.com
+                    </a>
+                </p>
             </div>
         </div>
     </div>
 
-    <modal name="moodModal"
-           adapter="bootstrapAdapter"
-           controlled-by="MoodModalController"
-           template-url="'templates/moodModal.html'"></modal>
-
     <script src=".components/jquery/dist/jquery.js"></script>
     <script src=".components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src=".components/angular/angular.js"></script>
-    <script src=".angular-anydialog/angular-anydialog-all.js"></script>
-    <script src="js/controller-modal-communication.js"></script>
 </body>
 </html>
