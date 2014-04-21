@@ -24,4 +24,4 @@ After these steps examples are available @ http://localhost:8282
 Docs and examples
 -----------------
 
-Docs and examples can be found @ http://angular-anydialog.karolmaja.com
+Docs and examples can be found @ http://angular-anydialog.karolmajta.com
