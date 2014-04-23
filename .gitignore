@@ -2,3 +2,5 @@ dist/
 node_modules/
 bower_components/
 examples/.*
+examples/api-docs/
+examples/example-docs/

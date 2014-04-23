@@ -11,6 +11,20 @@ module.exports = function(grunt) {
         jshint: {
             all: ['Gruntfile.js', 'src/**/*.js', 'examples/**/*.js']
         },
+        docco: {
+            docs: {
+                src: ['src/**/*.js'],
+                options: {
+                    output: 'examples/api-docs/'
+                }
+            },
+            examples: {
+                src: ['examples/js/**/*.js'],
+                options: {
+                    output: 'examples/example-docs/'
+                }
+            }
+        },
         copy: {
             adapters: {
                 files: [
@@ -72,12 +86,14 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-docco');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-http-server');
 
     grunt.registerTask('build', ['jshint',
+                                 'docco',
                                  'copy:adapters',
                                  'concat',
                                  'uglify',
