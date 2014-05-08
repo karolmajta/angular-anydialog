@@ -13,7 +13,10 @@ angular.module('karolmajta.anydialog.adapters.bootstrap', [])
                 modalDiv.push(elem);
             }
         }
-        var jqDiv = angular.element(modalDiv).modal('show');
+        var jqDiv = angular.element(modalDiv).modal({
+            show: true,
+            keyboard: false
+        });
         jqDiv.unbind('click');
         var d = $q.defer();
         jqDiv.on('shown.bs.modal', function (e) {
@@ -34,6 +37,7 @@ angular.module('karolmajta.anydialog.adapters.bootstrap', [])
       };
 
   }]);
+
 angular.module('karolmajta.anydialog.adapters.jqueryui', [])
 
     .service('jqueryUiAdapter', ['$q', function ($q) {
